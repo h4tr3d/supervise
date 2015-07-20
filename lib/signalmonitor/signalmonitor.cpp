@@ -66,6 +66,9 @@ SignalMonitor::~SignalMonitor()
     {
         release(this);
     }
+    
+    ::close(m_signalPipe[0]);
+    ::close(m_signalPipe[1]);
 }
 
 void SignalMonitor::setHandler(const SignalMonitor::MessageHandler &handler)
